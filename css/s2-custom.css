@@ -1,0 +1,547 @@
+/* ============================================
+   S2 CLUBE — Custom Overrides & Animations
+   Layered on top of medvi-ready.css
+   ============================================ */
+
+/* === FIX: Esconder menu lateral Medvi por padrao === */
+.nav-menu { display: none !important; }
+.slideout-menu { display: none !important; }
+.blackout { display: none !important; }
+
+/* === FIX: Fallback — mostrar conteudo se JS nao executar === */
+/* Quando JS roda, ele adiciona .s2-js-ready ao body */
+body:not(.s2-js-ready) .s2-animate {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* === FIX: Limitar photo-grid do hero === */
+.hero---photo-grid {
+  max-height: 500px !important;
+  overflow: hidden !important;
+}
+
+/* --- S2 Color Palette (overrides Medvi) --- */
+:root {
+  --charcoal: #0f172a;
+  --evergreen: #e11d48;
+  --wood: #0d9488;
+  --mint-light: #f0fdfa;
+  --smoke: #f8fafc;
+  --sand-light: #f0fdfa;
+  --evergreen-light: #ccfbf1;
+  --sky-light: #f0fdfa;
+  --brown-stone: #f8fafc;
+}
+
+/* --- Hero background creme --- */
+.section---hero {
+  background-image: linear-gradient(#FFF5F5, #fff) !important;
+  padding-top: 0px !important;
+  padding-bottom: 40px !important;
+}
+
+/* Fix: nav fixo tinha transform inline do Webflow */
+.w-layout-blockcontainer.hero---navigation.fixed.w-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255,255,255,0.97) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  margin-top: 0 !important;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 12px 30px !important;
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  transition: transform 0.4s ease, opacity 0.4s ease !important;
+}
+
+.w-layout-blockcontainer.hero---navigation.fixed.w-container.nav-visible {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+.hero-block {
+  padding-top: 10px !important;
+}
+
+/* --- Section spacing fix (neutralize Medvi overlap) --- */
+.s2-section {
+  margin-top: 0 !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
+.s2-section.s2-section-flush {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+/* --- Override Webflow initial hidden states --- */
+html.w-mod-js:not(.w-mod-ix) [data-w-id] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* --- Review slider marquee animation --- */
+@keyframes s2-marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes s2-marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.review-slider.slider-1 .slider-grouping {
+  animation: s2-marquee-left 40s linear infinite;
+}
+
+.review-slider.slider-2 {
+  margin-left: 0 !important;
+  justify-content: flex-end;
+}
+
+.review-slider.slider-2 .slider-grouping {
+  animation: s2-marquee-right 45s linear infinite;
+}
+
+/* Logo marquee - custom implementation */
+.s2-logo-marquee {
+  overflow: hidden !important;
+  width: 100% !important;
+  padding: 30px 0 !important;
+  border-top: 1px solid #ebebeb !important;
+  border-bottom: 1px solid #ebebeb !important;
+}
+
+.s2-logo-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: s2-logo-scroll 30s linear infinite !important;
+}
+
+.s2-logo-item {
+  flex-shrink: 0 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #1a1a1a !important;
+  white-space: nowrap !important;
+  padding: 0 40px !important;
+}
+
+@keyframes s2-logo-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- FAQ accordion transitions --- */
+.acordion-body {
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-icon-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item-wrapper {
+  cursor: pointer;
+}
+
+/* --- Image parallax + hover effects (Medvi-style) --- */
+
+/* Parallax images - JS controls transform progressively */
+.photo-grid-item .hero-photo,
+.change-photo-grid-item .hero-photo,
+.metabolism .hero-photo,
+.journey-image .hero-photo {
+  will-change: transform !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hover: zoom sutil ao passar o mouse */
+.photo-grid-item:hover .hero-photo,
+.change-photo-grid-item:hover .hero-photo,
+.metabolism:hover .hero-photo,
+.journey-image:hover .hero-photo {
+  transform: scale(1.05) !important;
+  transition: transform 0.4s ease !important;
+}
+
+/* Containers com overflow hidden para cortar zoom */
+.photo-grid-item,
+.change-photo-grid-item,
+.metabolism,
+.journey-image {
+  overflow: hidden !important;
+}
+
+/* --- Benefit images larger --- */
+.twin-photos {
+  height: 480px !important;
+}
+
+/* Blocos com twin-photos wider - aumentar container pai */
+.metabolism-container:has(.s2-twin-wide) {
+  max-width: 1300px !important;
+}
+
+.intro-inline.stack:has(.s2-twin-wide) {
+  max-width: 100% !important;
+}
+
+.intro-inline.stack:has(.s2-twin-wide) .intro-stack {
+  max-width: 400px !important;
+  flex-shrink: 0 !important;
+}
+
+/* --- Scroll-triggered reveal animations --- */
+.s2-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.s2-animate.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Staggered children: cards, grid items */
+.s2-animate-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.s2-animate-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.s2-animate-children.visible > *:nth-child(2) { transition-delay: 0.12s; }
+.s2-animate-children.visible > *:nth-child(3) { transition-delay: 0.19s; }
+.s2-animate-children.visible > *:nth-child(4) { transition-delay: 0.26s; }
+.s2-animate-children.visible > *:nth-child(5) { transition-delay: 0.33s; }
+.s2-animate-children.visible > *:nth-child(6) { transition-delay: 0.40s; }
+.s2-animate-children.visible > *:nth-child(7) { transition-delay: 0.47s; }
+
+.s2-animate-children.visible > * {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* --- Photo grid parallax (for images inside change grid) --- */
+.change-photo-grid-item .hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.change-photo-grid-item .hero-photo.photo-revealed {
+  transform: scale(1);
+}
+
+/* --- Button hover enhancements --- */
+.primary-cta {
+  transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease !important;
+}
+
+.primary-cta:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.primary-cta:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- FAQ enhancements --- */
+.faq-item-s2 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item-s2:hover {
+  transform: translateX(6px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.faq-item-s2 button {
+  transition: color 0.2s ease;
+}
+
+.faq-item-s2:hover button {
+  color: var(--evergreen) !important;
+}
+
+.faq-item-s2.open .faq-ans {
+  max-height: 400px !important;
+}
+
+.faq-item-s2.open .faq-chev {
+  transform: rotate(180deg);
+}
+
+/* --- Pillar cards hover --- */
+.s2-pillar-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.s2-pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Benefit cards hover --- */
+.s2-benefit-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.s2-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Stats counter animation --- */
+.s2-stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Testimonial cards hover --- */
+.s2-testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.s2-testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Pricing card pulse --- */
+.s2-pricing-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.s2-pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* --- WhatsApp button breathing --- */
+@keyframes s2-breathe {
+  0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35); }
+  50%      { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.55); }
+}
+
+.s2-whatsapp {
+  animation: s2-breathe 2.5s ease-in-out infinite;
+}
+
+.s2-whatsapp:hover {
+  transform: scale(1.12) !important;
+  animation: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+}
+
+/* --- Responsive fixes for S2 custom grids --- */
+@media (max-width: 991px) {
+  .s2-grid-2col { grid-template-columns: 1fr !important; }
+  .s2-grid-3col { grid-template-columns: 1fr 1fr !important; }
+  .s2-grid-4col { grid-template-columns: 1fr 1fr !important; }
+  .s2-steps-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================
+   RESPONSIVE: TABLET (max-width: 991px)
+   ============================================ */
+@media (max-width: 991px) {
+  .s2-grid-2col { grid-template-columns: 1fr !important; }
+  .s2-grid-3col { grid-template-columns: 1fr 1fr !important; }
+  .s2-grid-4col { grid-template-columns: 1fr 1fr !important; }
+  .s2-steps-grid { grid-template-columns: 1fr !important; }
+
+  /* Twin photos - reduzir do desktop 480px */
+  .twin-photos { height: 350px !important; }
+
+  /* Container dos beneficios wide */
+  .metabolism-container:has(.s2-twin-wide) { max-width: 100% !important; }
+
+  /* Texto stack liberar largura */
+  .intro-stack { max-width: 100% !important; }
+}
+
+/* ============================================
+   RESPONSIVE: MOBILE LANDSCAPE (max-width: 767px)
+   ============================================ */
+@media (max-width: 767px) {
+  .s2-grid-2col { grid-template-columns: 1fr !important; }
+  .s2-grid-3col { grid-template-columns: 1fr !important; }
+  .s2-grid-4col { grid-template-columns: 1fr 1fr !important; }
+  .s2-steps-grid { grid-template-columns: 1fr !important; }
+
+  /* Blocos sem invert: forcar imagens em cima no mobile */
+  .intro-inline.stack:not(.invert) { flex-direction: column-reverse !important; }
+
+  /* Ocultar logo hero no mobile */
+  .s2-hero-logo { display: none !important; }
+
+  /* === IMAGENS === */
+  .twin-photos { height: 250px !important; }
+
+  /* === LAYOUT === */
+  .metabolism-container:has(.s2-twin-wide) { max-width: 100% !important; }
+  .metabolism-container { max-width: 100% !important; border-radius: 20px !important; padding: 40px 15px !important; }
+  .intro-inline { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .intro-stack { max-width: 100% !important; width: 100% !important; }
+  .intro-stack.right { width: 100% !important; }
+
+  /* === SECOES === */
+  .s2-section { padding-top: 50px !important; padding-bottom: 50px !important; }
+  .section { padding-top: 100px !important; }
+
+  /* === TIPOGRAFIA === */
+  .heading { font-size: 32px !important; line-height: 38px !important; }
+  .hero-subtext { font-size: 15px !important; }
+
+  /* === MARQUEE === */
+  .s2-logo-item { font-size: 16px !important; padding: 0 20px !important; }
+
+  /* === PARALLAX - otimizar no mobile === */
+  .hero-photo { will-change: auto !important; }
+
+  /* === CARDS RESUMO === */
+  .s2-cards-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* === MARGENS MEDVI === */
+  .margin-30s { margin: 10px !important; }
+
+  /* === HERO PHOTO GRID === */
+  .hero---photo-grid { margin-top: 20px !important; max-height: 280px !important; overflow: hidden !important; }
+  .section---hero { padding-bottom: 30px !important; }
+
+  /* === GARANTIA === */
+  .flex-block-2 { flex-direction: column !important; text-align: center !important; }
+}
+
+/* ============================================
+   RESPONSIVE: MOBILE PORTRAIT (max-width: 479px)
+   ============================================ */
+@media (max-width: 479px) {
+  .s2-grid-4col { grid-template-columns: 1fr !important; }
+
+  /* === IMAGENS === */
+  .twin-photos { height: 160px !important; }
+
+  /* === LAYOUT === */
+  .intro-stack { width: 100% !important; }
+  .intro-inline { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .intro-text-container { padding-left: 10px !important; padding-right: 10px !important; }
+  .metabolism-container { padding-left: 15px !important; padding-right: 15px !important; }
+  .margin-30s { margin: 5px !important; }
+
+  /* === SECOES === */
+  .s2-section { padding-top: 30px !important; padding-bottom: 30px !important; }
+
+  /* === TIPOGRAFIA === */
+  .heading { font-size: 26px !important; line-height: 32px !important; max-width: 340px !important; }
+  .hero-subtext { font-size: 14px !important; }
+  .section-titles { font-size: 24px !important; }
+  .hero-preheader { font-size: 14px !important; }
+
+  /* === MARQUEE === */
+  .s2-logo-item { font-size: 14px !important; padding: 0 16px !important; }
+  .s2-logo-marquee { padding: 15px 0 !important; }
+
+  /* === VALUE STACK / CARDS PRECO === */
+  .s2-animate[style*="max-width:520px"] { padding: 30px 20px !important; }
+
+  /* === APP DOWNLOAD BOTOES === */
+  .s2-app-buttons { flex-direction: column !important; }
+
+  /* === NAV === */
+  .hero---navigation { padding-left: 15px !important; padding-right: 15px !important; }
+
+  /* === HERO === */
+  .hero-block { margin-top: 15px !important; }
+  .hero---photo-grid { padding-left: 15px !important; padding-right: 15px !important; margin-top: 10px !important; max-height: 200px !important; overflow: hidden !important; }
+  .section---hero { padding-bottom: 15px !important; }
+  .photo-grid-item.photo-1,
+  .photo-grid-item.photo-7 { display: none !important; }
+}
+
+/* ============================================
+   3 Cards de Resumo (Hero)
+   ============================================ */
+.s2-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.s2-summary-card {
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.s2-summary-card:hover {
+  border-color: var(--evergreen);
+  box-shadow: 0 8px 30px rgba(225,29,72,.08);
+  transform: translateY(-4px);
+}
+.s2-card-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.s2-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.s2-card-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+.s2-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--evergreen);
+}
+@media (max-width: 767px) {
+  .s2-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Marquee de beneficios (textos) */
+.s2-benefit-text {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--charcoal) !important;
+  white-space: nowrap;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  font-family: 'Red Hat Text', sans-serif !important;
+}

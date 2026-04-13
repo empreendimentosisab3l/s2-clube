@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <title>Obrigado | S2 Clube — Bem-vindo(a) ao clube!</title>
+  <meta content="Sua assinatura do S2 Clube foi confirmada. Baixe o app e comece a usar agora." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/components.css" rel="stylesheet" type="text/css">
+  <link href="css/s2-base.css" rel="stylesheet" type="text/css">
+  <link href="css/s2-custom.css" rel="stylesheet" type="text/css">
+  <link href="images/s2-favicon.svg" rel="shortcut icon" type="image/svg+xml">
+  <link href="images/s2-favicon.svg" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body { background: #fff; }
+    .ty-hero {
+      position: relative;
+      background: linear-gradient(#FFF5F5, #fff);
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+    .ty-logo {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+    }
+    .ty-logo .s2 { font-size: 28px; font-weight: 900; color: #e11d48; letter-spacing: -1px; font-family: 'Red Hat Text', sans-serif; }
+    .ty-logo .clube { font-size: 18px; font-weight: 600; color: #0f172a; margin-left: 4px; font-family: 'Red Hat Text', sans-serif; }
+    .ty-check-icon {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(13, 148, 136, 0.3);
+      animation: ty-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes ty-pop {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .ty-title {
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.15;
+      max-width: 720px;
+      margin: 0 auto 16px;
+    }
+    .ty-title .evergreen { color: #e11d48; }
+    .ty-subtitle {
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 18px;
+      color: #475569;
+      max-width: 560px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .ty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0fdfa;
+      border: 1px solid #ccfbf1;
+      color: #0d9488;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .ty-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      font-family: 'Red Hat Text', sans-serif;
+    }
+
+    /* Steps */
+    .ty-steps {
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      border-radius: 20px;
+      padding: 40px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.04);
+    }
+    .ty-steps-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .ty-steps-subtitle {
+      font-size: 15px;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .ty-step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+    .ty-step:last-child { margin-bottom: 0; }
+    .ty-step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .ty-step-content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 4px;
+    }
+    .ty-step-content p {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* App download */
+    .ty-app-section {
+      background: #0f172a;
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+    .ty-app-section h2 {
+      font-size: 28px;
+      font-weight: 900;
+      margin: 0 0 8px;
+    }
+    .ty-app-section h2 .evergreen { color: #e11d48; }
+    .ty-app-section p {
+      font-size: 15px;
+      color: rgba(255,255,255,.7);
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+    .ty-app-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ty-app-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      color: #0f172a;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ty-app-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    }
+    .ty-app-btn svg { flex-shrink: 0; }
+    .ty-app-btn small { display: block; font-size: 10px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+    .ty-app-btn strong { display: block; font-size: 16px; }
+
+    /* Benefícios rápidos */
+    .ty-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .ty-benefit {
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .ty-benefit-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 12px;
+      display: block;
+      border: 3px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+    .ty-benefit h3 { font-size: 15px; font-weight: 700; color: #0f172a; margin: 0 0 4px; }
+    .ty-benefit p { font-size: 13px; color: #64748b; margin: 0; }
+
+    /* WhatsApp suporte */
+    .ty-support {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .ty-support h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #166534;
+      margin: 0 0 8px;
+    }
+    .ty-support p {
+      font-size: 14px;
+      color: #15803d;
+      margin: 0 0 16px;
+    }
+    .ty-support-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    .ty-support-btn:hover { background: #1da851; }
+
+    /* Info importante */
+    .ty-info {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #92400e;
+      line-height: 1.6;
+    }
+    .ty-info strong { color: #78350f; }
+
+    /* Footer */
+    .ty-footer {
+      text-align: center;
+      padding: 32px 20px;
+      border-top: 1px solid #f1f5f9;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 40px;
+    }
+    .ty-footer a { color: #64748b; text-decoration: none; margin: 0 12px; }
+    .ty-footer a:hover { color: #e11d48; }
+
+    @media (max-width: 600px) {
+      .ty-logo { display: none; }
+      .ty-hero { padding: 40px 20px 30px; }
+      .ty-title { font-size: 30px; }
+      .ty-subtitle { font-size: 15px; }
+      .ty-check-icon { width: 80px; height: 80px; }
+      .ty-benefits { grid-template-columns: 1fr; }
+      .ty-steps { padding: 28px 20px; }
+      .ty-app-section { padding: 36px 20px; }
+      .ty-app-section h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="ty-hero">
+    <div class="ty-logo">
+      <span class="s2">S2</span><span class="clube">Clube</span>
+    </div>
+
+    <div class="ty-check-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12l5 5L20 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="ty-badge">
+      ✓ Assinatura confirmada
+    </div>
+
+    <h1 class="ty-title">Parabens! Voce agora e membro do <span class="evergreen">S2 Clube</span></h1>
+    <p class="ty-subtitle">Obrigado pela confianca. Sua assinatura foi confirmada e voce ja pode comecar a aproveitar todos os beneficios: telemedicina 24h, descontos, cashback e sorteios no PIX.</p>
+  </div>
+
+  <div class="ty-container">
+
+    <!-- STEPS -->
+    <div class="ty-steps">
+      <h2 class="ty-steps-title">Como comecar a usar agora</h2>
+      <p class="ty-steps-subtitle">Em poucos minutos voce ja esta usando o S2 Clube</p>
+
+      <!-- PASSO OCULTO (reativar quando disparo de email estiver configurado)
+      <div class="ty-step">
+        <div class="ty-step-num">1</div>
+        <div class="ty-step-content">
+          <h3>Verifique seu email</h3>
+          <p>Voce recebera em instantes um email com os dados de acesso. Se nao encontrar, verifique a caixa de spam.</p>
+        </div>
+      </div>
+      -->
+
+      <div class="ty-step">
+        <div class="ty-step-num">1</div>
+        <div class="ty-step-content">
+          <h3>Baixe o aplicativo S2 Clube</h3>
+          <p>Disponivel gratis para Android e iPhone. Todos os beneficios ficam na palma da sua mao.</p>
+        </div>
+      </div>
+
+      <div class="ty-step">
+        <div class="ty-step-num">2</div>
+        <div class="ty-step-content">
+          <h3>Faca login com suas credenciais</h3>
+          <p>Digite seu CPF no App e cadastre sua senha de acesso.</p>
+        </div>
+      </div>
+
+      <!-- PASSO OCULTO (reativar quando formulario de dependentes estiver pronto)
+      <div class="ty-step">
+        <div class="ty-step-num">4</div>
+        <div class="ty-step-content">
+          <h3>Cadastre seus dependentes (ate 4)</h3>
+          <p>Voce pode cadastrar ate 4 dependentes sem necessidade de vinculo familiar. Toda sua familia protegida por R$49,90/mes.</p>
+        </div>
+      </div>
+      -->
+
+      <div class="ty-step">
+        <div class="ty-step-num">3</div>
+        <div class="ty-step-content">
+          <h3>Comece a usar!</h3>
+          <p>Consulte medicos 24h, aproveite descontos em 30 mil+ lojas, ganhe cashback e concorra a sorteios no PIX.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP DOWNLOAD -->
+    <div class="ty-app-section">
+      <h2>Baixe o App <span class="evergreen">S2 Clube</span></h2>
+      <p>Todos os beneficios na palma da sua mao. Disponivel para Android e iPhone.</p>
+
+      <div class="ty-app-buttons">
+        <a href="https://apps.apple.com/br/app/s2-clube/id6761072595" target="_blank" rel="noopener" class="ty-app-btn">
+          <svg width="28" height="28" viewBox="0 0 384 512" fill="#0f172a"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <div>
+            <small>Baixar na</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.cbc.s2clube&pcampaignid=web_share" target="_blank" rel="noopener" class="ty-app-btn">
+          <svg width="28" height="28" viewBox="0 0 512 512"><path fill="#FFD400" d="M325.3 234.3L104.6 13l280.8 161.2z"/><path fill="#FF3333" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256z"/><path fill="#48FF48" d="M424.9 236.7L385.4 214 325.3 256l60.1 42 39.5-22.7c18.3-10.5 18.3-28.1 0-38.6z"/><path fill="#3BCCFF" d="M104.6 499l280.8-161.2L325.3 277.7z"/></svg>
+          <div>
+            <small>Disponivel no</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS RAPIDOS -->
+    <div class="ty-benefits">
+      <div class="ty-benefit">
+        <img src="images/medico.jpg" alt="Telemedicina" class="ty-benefit-img">
+        <h3>Telemedicina 24h</h3>
+        <p>Consultas ilimitadas com Clinico e Pediatra</p>
+      </div>
+      <div class="ty-benefit">
+        <img src="images/desconto01.jpg" alt="Descontos" class="ty-benefit-img">
+        <h3>Descontos ate 90%</h3>
+        <p>Em mais de 30 mil lojas parceiras</p>
+      </div>
+      <div class="ty-benefit">
+        <img src="images/cashback01.jpg" alt="Cashback" class="ty-benefit-img">
+        <h3>Cashback</h3>
+        <p>Dinheiro de volta em suas compras</p>
+      </div>
+      <div class="ty-benefit">
+        <img src="images/sorteio01.jpg" alt="Sorteios" class="ty-benefit-img">
+        <h3>Sorteios no PIX</h3>
+        <p>Concorra a ate R$10.000 todo mes</p>
+      </div>
+    </div>
+
+    <!-- WHATSAPP SUPORTE -->
+    <div class="ty-support">
+      <h3>Precisa de ajuda?</h3>
+      <p>Nossa equipe esta pronta para te atender pelo WhatsApp.</p>
+      <a href="https://api.whatsapp.com/send?phone=5534991369199&text=Ola! Acabei de assinar o S2 Clube e preciso de ajuda." target="_blank" rel="noopener" class="ty-support-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+
+    <!-- INFO IMPORTANTE -->
+    <div class="ty-info">
+      <strong>Importante:</strong> Sua assinatura e recorrente e sera renovada automaticamente a cada mes. Voce pode cancelar a qualquer momento pelo app ou entrando em contato com o nosso suporte. <strong>Sem carencia, sem fidelidade, sem multa.</strong>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ty-footer">
+    <div>
+      <a href="index.html">Pagina inicial</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="termos.html">Termos</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <p style="margin-top:12px;">&copy; 2026 S2 Clube. Todos os direitos reservados.</p>
+  </div>
+
+</body>
+</html>
